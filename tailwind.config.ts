@@ -8,11 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        iris: '#5D5FEF',
+        "white-gray": '#F3F3F3',
+        black: "#111111",
+        gray: "#C9C9C9"
       },
+      fontFamily: {
+        sans: ['var(--font-heebo)'],
+        heading: ['var(--font-exo_2)']
+      },
+      gridTemplateColumns: {
+        layout: '200px auto'
+      },
+      gridTemplateRows : {
+        layout: 'minmax(0, 1fr) auto'
+      }
     },
   },
   plugins: [],

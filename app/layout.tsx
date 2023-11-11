@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { exo_2, heebo } from './fonts'
+import Sidebar from './components/Sidebar'
+import Footer from './components/Footer'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${exo_2.variable} ${heebo.variable}`}>
-      <body>{children}</body>
+      
+      <body className='flex grid grid-cols-layout grid-rows-layout'>
+        <Sidebar />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
