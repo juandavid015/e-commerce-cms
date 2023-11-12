@@ -1,7 +1,11 @@
+import SearchBar from "./SearchBar";
+import UserPanel from "./UserPanel";
+
 const Header = () => {
     return (
-        <header>
-            s
+        <header className="flex justify-between items-center font-heading">
+            <SearchBar />
+            <UserPanel />
         </header>
     )
 }

@@ -3,15 +3,15 @@ import { IconArrow } from "./Icons";
 
 const DiscountCard = () => {
     return (
-        <div className="max-w-[600px] w-full rounded-lg
-        hover:scale-[0.99] transition-all
+        <div className="w-full min-h-[150px] rounded-lg 
+        hover:scale-[0.99] transition-all col-span-full
         bg-iris p-8 flex items-center justify-around text-white font-heading">
             <div className="flex flex-col">
 
                 <h2 className="sm:text-xl text-lg font-bold text-white/70">
                     Section A 
                 </h2>
-                <p className="sm:text-3xl text-2xl font-bold font-heading
+                <p className="sm:text-4xl text-2xl font-bold font-heading
                 text-white">
                     50% OFF
                 </p>

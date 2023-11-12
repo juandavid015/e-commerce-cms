@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconAboutUs, IconContact, IconHome, IconProduct } from "./Icons";
 const Sidebar = () => {
+    // Next step: make responsive. The idea might be to overlap and display as a menu that overlap and show content when expanded
     return (
         <header className="max-w-[200px] w-full h-full bg-red
         border-r border-r-white-gray font-heading text-black p-8
@@ -24,15 +25,17 @@ const Sidebar = () => {
                     <span className="font-bold text-2xl">
                         Explore
                     </span>
-                    <li className="fill-black">
-                        <Link href={'/'}
+                    <li className="fill-gray text-gray
+                    hover:fill-black hover:text-black hover:scale-[0.95]">
+                        <Link href={'/home'}
                         className="flex gap-2 items-center"
                         >
                             <IconHome className="h-[25px]"/>
-                            <span>Home</span>
+                            Home
                         </Link>
                     </li>
-                    <li className="fill-black">
+                    <li className="fill-gray text-gray
+                    hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/home'}
                          className="flex gap-2 items-center"
                         >
@@ -40,7 +43,8 @@ const Sidebar = () => {
                             Products
                         </Link>
                     </li>
-                    <li className="fill-black">
+                    <li className="fill-gray text-gray
+                    hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/home'}
                          className="flex gap-2 items-center"
                         >
@@ -48,7 +52,8 @@ const Sidebar = () => {
                             About us
                         </Link>
                     </li>
-                    <li className="fill-black">
+                    <li className="fill-gray text-gray
+                    hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/home'}
                          className="flex gap-2 items-center"
                         >

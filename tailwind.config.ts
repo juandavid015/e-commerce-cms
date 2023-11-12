@@ -19,10 +19,12 @@ const config: Config = {
         heading: ['var(--font-exo_2)']
       },
       gridTemplateColumns: {
-        layout: '200px auto'
+        layout: '200px auto',
+        "products-show": 'repeat(2, minmax(0, 400px))',
       },
       gridTemplateRows : {
-        layout: 'minmax(0, 1fr) auto'
+        layout: 'minmax(0, 1fr) auto',
+        "products-show": 'repeat(auto-fit, minmax(0, auto))',
       }
     },
   },
