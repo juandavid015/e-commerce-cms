@@ -19,12 +19,22 @@ const config: Config = {
         heading: ['var(--font-exo_2)']
       },
       gridTemplateColumns: {
-        layout: '200px auto',
+        layout: 'minmax(200px, 1fr) auto',
         "products-show": 'repeat(2, minmax(0, 400px))',
       },
       gridTemplateRows : {
         layout: 'minmax(0, 1fr) auto',
         "products-show": 'repeat(auto-fit, minmax(0, auto))',
+      },
+      animation: {
+        'expand-right': 'expand .6s ease-out 0s 1 forwards',
+        
+      },
+      keyframes: {
+        'expand': {
+          '0%': { width: '0px', opacity: '0' },
+          '100%': { width: '100%', opacity: '1' },
+        },
       }
     },
   },

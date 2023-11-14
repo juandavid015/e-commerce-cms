@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${exo_2.variable} ${heebo.variable}`}>
       
-      <body className='flex grid grid-cols-layout grid-rows-layout'>
+      <body className='relative grid grid-cols-layout grid-rows-layout'>
         <Sidebar />
         {children}
         <Footer />

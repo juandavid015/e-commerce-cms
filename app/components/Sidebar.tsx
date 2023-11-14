@@ -1,14 +1,57 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { IconAboutUs, IconContact, IconHome, IconProduct } from "./Icons";
+import { IconAboutUs, IconContact, IconHome, IconMenu, IconProduct, IconX } from "./Icons";
+import { useState } from "react";
 const Sidebar = () => {
     // Next step: make responsive. The idea might be to overlap and display as a menu that overlap and show content when expanded
+    const [expanded, setExpanded] = useState(false);
     return (
-        <header className="max-w-[200px] w-full h-full bg-red
-        border-r border-r-white-gray font-heading text-black p-8
-        gri">
-            <nav className="w-full h-full flex flex-col gap-16">
-                <div className="flex flex-col items-center">
+        <header className={`max-w-[200px] font-heading text-black h-auto
+        md:relative fixed top-0 left-0 z-[1000] 
+        transition-all duration-700 ease-in-out 
+        `}
+        role='navigation' aria-label="navigation links"
+        aria-hidden={!expanded} 
+        >
+            {
+                !expanded ? 
+                <button className="h-[35px] w-[35px] md:hidden block
+                border-gray border rounded-md bg-white
+                hover:bg-black hover:fill-white hover:scale-[0.95] hover:border-none
+                flex justify-center items-center
+                absolute top-4 right-4 transition-all z-[3000]"
+                title="Open sidebar"
+                onClick={()=> setExpanded(true)}
+                aria-expanded={expanded}
+                >
+                    <IconMenu 
+                    className="h-[15px]"
+                    />
+                </button>
+                :
+                <button className="h-[35px] w-[35px] md:hidden block
+                border-gray border rounded-md bg-white
+                hover:bg-black hover:fill-white hover:scale-[0.95] hover:border-none
+                flex justify-center items-center
+                absolute top-4 right-4 transition-all z-[3000]"
+                title="Close sidebar"
+                onClick={()=> setExpanded(false)}
+                aria-expanded={expanded}
+                >
+                    <IconX 
+                    className="h-[15px]"
+                    />
+                </button>
+            }
+            <nav className={`md:w-[200px] md:opacity-100 md:h-screen 
+            border-r border-r-white-gray bg-white p-8 origini-left 
+            flex flex-col gap-16 transition-all duration-700 ease-in-out
+            ${expanded ? 'w-[200px] opacity-100 h-screen': 
+            'w-[0px] opacity-0 bg-transparent h-[0px]'} 
+            `}
+            >
+                <div className="flex flex-col items-center w-full">
 
                     <Image
                         width={120}
@@ -21,13 +64,13 @@ const Sidebar = () => {
                         E
                     </span>
                 </div>
-                <ul className="flex flex-col gap-8">
+                <ul className="flex flex-col gap-8 w-full">
                     <span className="font-bold text-2xl">
                         Explore
                     </span>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'/home'}
+                        <Link href={'#'}
                         className="flex gap-2 items-center"
                         >
                             <IconHome className="h-[25px]"/>
@@ -36,7 +79,7 @@ const Sidebar = () => {
                     </li>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'/home'}
+                        <Link href={'#'}
                          className="flex gap-2 items-center"
                         >
                             <IconProduct className="h-[25px]"/>
@@ -45,7 +88,7 @@ const Sidebar = () => {
                     </li>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'/home'}
+                        <Link href={'#'}
                          className="flex gap-2 items-center"
                         >
                             <IconAboutUs className="h-[25px]"/>
@@ -54,7 +97,7 @@ const Sidebar = () => {
                     </li>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'/home'}
+                        <Link href={'#'}
                          className="flex gap-2 items-center"
                         >
                             <IconContact className="h-[25px]" />
