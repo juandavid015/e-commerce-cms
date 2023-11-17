@@ -2,17 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IconAboutUs, IconContact, IconHome, IconMenu, IconProduct, IconX } from "./Icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useClickOutside } from "../hooks/useClickOutside";
 const Sidebar = () => {
     // Next step: make responsive. The idea might be to overlap and display as a menu that overlap and show content when expanded
     const [expanded, setExpanded] = useState(false);
+    const elementRef = useRef(null)
+    useClickOutside({elementRef, onClickOutside: ()=> setExpanded(false)})
     return (
         <header className={`max-w-[200px] font-heading text-black h-auto
         md:relative fixed top-0 left-0 z-[1000] 
         transition-all duration-700 ease-in-out 
         `}
         role='navigation' aria-label="navigation links"
-        aria-hidden={!expanded} 
+        aria-hidden={!expanded} ref={elementRef}
         >
             {
                 !expanded ? 
@@ -31,7 +34,7 @@ const Sidebar = () => {
                 </button>
                 :
                 <button className="h-[35px] w-[35px] md:hidden block
-                border-gray border rounded-md bg-white
+                rounded-md bg-black fill-white
                 hover:bg-black hover:fill-white hover:scale-[0.95] hover:border-none
                 flex justify-center items-center
                 absolute top-4 right-4 transition-all z-[3000]"

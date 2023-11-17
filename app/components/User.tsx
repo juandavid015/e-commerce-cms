@@ -10,7 +10,7 @@ const User = () => {
                 src="https://images.pexels.com/photos/2970501/pexels-photo-2970501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                 className="w-full h-full object-cover"/>
             </div>
-            <div>
+            <div className="md:block hidden">
                 <p>Hello!</p>
                 <p className="font-bold">Mr. Calomon</p>
             </div>

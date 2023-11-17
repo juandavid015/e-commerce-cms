@@ -3,7 +3,7 @@ import UserPanel from "./UserPanel";
 
 const Header = () => {
     return (
-        <header className="flex justify-between items-center font-heading">
+        <header className="relative flex justify-between items-center font-heading">
             <SearchBar />
             <UserPanel />
         </header>
