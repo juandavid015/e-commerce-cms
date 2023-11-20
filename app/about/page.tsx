@@ -3,7 +3,7 @@ import MainAbout from "../components/about/MainAbout";
 
 const About = () => {
     return (
-        <main className="flex flex-col w-full h-full p-8 gap-16 
+        <main className="flex flex-col w-full h-full px-8 py-16 gap-16 
         md:row-start-2 md:row-span-1 md:col-start-2 md:col-span-2 md:col-span-full">
             {/* <Header /> */}
             <HeaderAbout/>

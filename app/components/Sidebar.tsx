@@ -83,7 +83,7 @@ const Sidebar = () => {
                     </li>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'#'}
+                        <Link href={'/products'}
                          className="flex gap-2 items-center"
                         >
                             <IconProduct className="h-[25px]"/>
@@ -101,7 +101,7 @@ const Sidebar = () => {
                     </li>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'#'}
+                        <Link href={'/contact'}
                          className="flex gap-2 items-center"
                         >
                             <IconContact className="h-[25px]" />
