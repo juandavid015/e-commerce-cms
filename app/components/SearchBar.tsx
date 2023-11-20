@@ -12,15 +12,15 @@ export const SearchBar = () => {
     useClickOutside({elementRef, onClickOutside: ()=> setExpanded(false)})
     return (
 
-        <search className={`lg:max-w-[480px] w-full lg:p-0 
-        transition-all duration-700 z-[900] rounded absolute top-0 left-0 
+        <search className={`lg:max-w-[480px]  w-full lg:p-0 
+        transition-all duration-700 z-[900] rounded absolute top-8 left-8 left-0 
         ${expanded && 'max-w-[100vw] p-8 bg-white'}
         `}
         onFocus={showSearchFullBar} ref={elementRef}
         >
             <form action="./search/"
                 className={`text-sm max-w-[480px] lg:w-full 
-                bg-white-gray rounded-md py-2 px-4 ${expanded ? 'w-full': 'md:w-[calc(100%-216px)] w-[calc(100%-116px)] ' }
+                bg-white-gray rounded-md py-2 px-4 ${expanded ? 'w-full': 'md:w-[calc(100%-316px)] w-[calc(100%-216px)] ' }
                 flex items-center gap-2`}>
                 <label htmlFor="product" className="w-full">
                     <input type="search" id="product" name="product"

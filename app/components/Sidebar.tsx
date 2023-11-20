@@ -4,6 +4,7 @@ import Link from "next/link";
 import { IconAboutUs, IconContact, IconHome, IconMenu, IconProduct, IconX } from "./Icons";
 import { useRef, useState } from "react";
 import { useClickOutside } from "../hooks/useClickOutside";
+
 const Sidebar = () => {
     // Next step: make responsive. The idea might be to overlap and display as a menu that overlap and show content when expanded
     const [expanded, setExpanded] = useState(false);
@@ -11,7 +12,7 @@ const Sidebar = () => {
     useClickOutside({elementRef, onClickOutside: ()=> setExpanded(false)})
     return (
         <header className={`max-w-[200px] font-heading text-black h-auto
-        md:relative fixed top-0 left-0 z-[1000] 
+        md:relative fixed top-0 left-0 z-[1000] md:col-start-1 md:col-span-1
         transition-all duration-700 ease-in-out 
         `}
         role='navigation' aria-label="navigation links"
@@ -49,7 +50,7 @@ const Sidebar = () => {
             }
             <nav className={`md:w-[200px] md:opacity-100 md:h-screen 
             border-r border-r-white-gray bg-white p-8 origini-left 
-            flex flex-col gap-16 transition-all duration-700 ease-in-out
+            flex flex-col gap-16 transition-all duration-700 ease-in-out bg-white/80 backdrop-blur-lg
             ${expanded ? 'w-[200px] opacity-100 h-screen': 
             'w-[0px] opacity-0 bg-transparent h-[0px]'} 
             `}
@@ -73,7 +74,7 @@ const Sidebar = () => {
                     </span>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'#'}
+                        <Link href={'/'}
                         className="flex gap-2 items-center"
                         >
                             <IconHome className="h-[25px]"/>
@@ -91,7 +92,7 @@ const Sidebar = () => {
                     </li>
                     <li className="fill-gray text-gray
                     hover:fill-black hover:text-black hover:scale-[0.95]">
-                        <Link href={'#'}
+                        <Link href={'/about'}
                          className="flex gap-2 items-center"
                         >
                             <IconAboutUs className="h-[25px]"/>

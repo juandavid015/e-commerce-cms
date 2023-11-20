@@ -19,11 +19,11 @@ const config: Config = {
         heading: ['var(--font-exo_2)']
       },
       gridTemplateColumns: {
-        layout: 'minmax(200px, 1fr) auto',
+        layout: '200px minmax(auto, 1fr)',
         "products-show": 'repeat(2, minmax(0, 400px))',
       },
       gridTemplateRows : {
-        layout: 'minmax(0, 1fr) auto',
+        layout: 'min-content minmax(0, 1fr) auto',
         "products-show": 'repeat(auto-fit, minmax(0, auto))',
       },
       animation: {

@@ -3,6 +3,7 @@ import './globals.css'
 import { exo_2, heebo } from './fonts'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
+import Header from './components/Header'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${exo_2.variable} ${heebo.variable}`}>
       
-      <body className='relative grid grid-cols-layout grid-rows-layout'>
+      <body className='relative w-full grid md:grid-cols-layout grid-cols-1 
+      auto-rows-auto md:grid-rows-layout '>
+        <Header />
         <Sidebar />
         {children}
         <Footer />

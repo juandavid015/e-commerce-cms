@@ -4,7 +4,7 @@ import { IconFacebook, IconInstagram, IconMasterCard, IconPaypal, IconTwitter, I
 const Footer = () => {
     return (
         <footer className="font-heading text-gray p-16
-        w-full mt-auto col-span-full
+        w-full mt-auto md:col-span-full md:col-start-1 md-col-end-4
         bg-white-gray flex sm:flex-row flex-col-reverse gap-32"
         >
             <div className="flex flex-col gap-1">
