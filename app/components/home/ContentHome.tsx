@@ -2,7 +2,7 @@ import Link from "next/link";
 import DiscountCard from "./DiscountCard";
 import ProductInfoCard from "./ProductInfoCard";
 import ProductShowCard from "./ProductShowCard";
-import { IconArrow, IconBagShop } from "./Icons";
+import { IconArrow, IconBagShop } from "../Icons";
 
 const ContentHome = () => {
     return (

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconArrow } from "./Icons";
+import { IconArrow } from "../Icons";
 
 const DiscountCard = () => {
     return (

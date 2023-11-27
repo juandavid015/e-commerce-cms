@@ -1,4 +1,4 @@
-import ContentHome from "./components/ContentHome";
+import ContentHome from "./components/home/ContentHome";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconFavoriteOutlined } from "./Icons";
+import { IconFavoriteOutlined } from "../Icons";
 
 const ProductInfoCard = ({img}: {img:string}) => {
     return (

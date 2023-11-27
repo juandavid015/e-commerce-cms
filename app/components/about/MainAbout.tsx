@@ -6,7 +6,7 @@ const MainAbout = () => {
         justify-center mx-auto p-8 gap-8">
 
                 <div className="w-full">
-                    <h2 className="sm:text-2xl text-xl font-bold">
+                    <h2 className="sm:text-3xl text-2xl font-bold">
                         About us
                     </h2>
                     <p>
@@ -14,7 +14,7 @@ const MainAbout = () => {
                     </p>
                 </div>
                 <div className="flex flex-col gap-4">
-                    <h2 className="sm:text-2xl text-xl font-bold">
+                    <h2 className="sm:text-3xl text-2xl font-bold">
                         Our services
                     </h2>
                     <ul className="flex flex-col gap-2">
