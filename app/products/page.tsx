@@ -4,8 +4,8 @@ import { data } from "../data"
 const Products = () => {
     const products = data.products
     return (
-        <main className="flex lg:flex-col flex-col gap-16 px-8 py-16
-        max-w-[auto] mx-auto w-full relative ">
+        <main className="flex flex-col gap-16 px-8 py-16
+         mx-auto w-full relative md:col-start-2 col-start-1 col-end-3">
             <FiltersAndSorts />
             <div className="grid justify-center grid-cols-products w-full relative">
                 {

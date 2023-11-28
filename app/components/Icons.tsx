@@ -150,3 +150,12 @@ export const IconArrowLarge = ({ className }: IconsProps) => {
         <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="up-arrow"><path d="M11.293,1.293a1,1,0,0,1,.325-.216.986.986,0,0,1,.764,0,1,1,0,0,1,.325.216l8,8a1,1,0,0,1-1.414,1.414L13,4.414V22a1,1,0,0,1-2,0V4.414L4.707,10.707A1,1,0,0,1,3.293,9.293Z"></path></svg>
     )
 }
+export const IconLogOut = ({ className }: IconsProps) => {
+    return (
+        <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="log-out"><path d="M29.71,16.71l-4,4-1.42-1.42L26.59,17H21a3,3,0,0,1-3-3V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5V27a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V20h2v7a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2H17a3,3,0,0,1,3,3v9a1,1,0,0,0,1,1h5.6l-2.26-2.28,1.42-1.41,3.95,4A1,1,0,0,1,29.71,16.71Z" data-name="44 Log out, Basic, Essential"></path></svg>)
+}
+
+export const IconLogIn = ({ className }: IconsProps) => {
+    return (
+        <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="login"><path d="M20,12a1,1,0,0,0-1-1H11.41l2.3-2.29a1,1,0,1,0-1.42-1.42l-4,4a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l4,4a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L11.41,13H19A1,1,0,0,0,20,12ZM17,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V16a1,1,0,0,0-2,0v3a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V5A3,3,0,0,0,17,2Z"></path></svg>)
+}

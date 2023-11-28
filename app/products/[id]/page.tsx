@@ -12,10 +12,12 @@ const Product = ({ params }: { params: { id: number } }) => {
 
     const product: Product | undefined = data.products.
         find(product => product.id === Number(params.id))
-
+    if(!product) {
+        throw new Error('Product not found')
+    }
     return (
-        <div className="flex flex-col px-8 py-16 gap-8 items-center 
-        max-w-[1024px] w-full relative mx-auto">
+        <main className="flex flex-col px-8 py-16 gap-8 items-center 
+        max-w-[1024px] w-full relative mx-auto col-start-2">
             <Link href={'/products'} scroll={false}
             className="absolute top-2 left-8
             p-3 bg-black fill-white rounded-full
@@ -99,7 +101,7 @@ const Product = ({ params }: { params: { id: number } }) => {
                 </div>
             </div>
 
-        </div>
+        </main>
     )
 }
 export default Product;

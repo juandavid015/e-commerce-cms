@@ -5,7 +5,7 @@ import FormMesagge from "../components/contact/FormMessage";
 const Contact = () => {
     return (
         <main className="flex flex-col gap-16 px-8 py-16
-        max-w-[1024px] mx-auto w-full">
+        max-w-[1024px] mx-auto w-full col-start-2">
             <div>
                 <h1 className="sm:text-4xl text-3xl font-bold">
                     Contact

@@ -13,7 +13,8 @@ const config: Config = {
         "white-gray": '#F3F3F3',
         black: "#111111",
         gray: "#C9C9C9",
-        yellow: '#FBC02D'
+        yellow: '#FBC02D',
+        red: '#d0112a'
       },
       fontFamily: {
         sans: ['var(--font-heebo)'],

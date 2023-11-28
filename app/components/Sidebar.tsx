@@ -12,8 +12,8 @@ const Sidebar = () => {
     useClickOutside({elementRef, onClickOutside: ()=> setExpanded(false)})
     return (
         <header className={`max-w-[200px] font-heading text-black h-auto
-        md:relative fixed top-0 left-0 z-[1000] md:col-start-1 md:col-span-1
-        transition-all duration-700 ease-in-out 
+        md:relative fixed top-0 left-0 z-[100000000] md:col-start-1 md:col-span-1
+        transition-all duration-700 ease-in-out  row-span-full
         `}
         role='navigation' aria-label="navigation links"
         aria-hidden={!expanded} ref={elementRef}
@@ -55,24 +55,21 @@ const Sidebar = () => {
             'w-[0px] opacity-0 bg-transparent h-[0px]'} 
             `}
             >
-                <div className="flex flex-col items-center w-full">
+                <div className="flex flex-col items-center w-full" title="U buy">
 
                     <Image
                         width={120}
                         height={120}
                         alt="logo"
-                        src={'/images/e-logo.png'}
+                        src={'/images/logo.png'}
                         priority
                     />
-                    <span className="font-heading text-4xl font-bold font-sans">
-                        E
-                    </span>
                 </div>
                 <ul className="flex flex-col gap-8 w-full">
                     <span className="font-bold text-2xl">
                         Explore
                     </span>
-                    <li className="fill-gray text-gray
+                    <li className="fill-gray text-black
                     hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/'}
                         className="flex gap-2 items-center"
@@ -81,7 +78,7 @@ const Sidebar = () => {
                             Home
                         </Link>
                     </li>
-                    <li className="fill-gray text-gray
+                    <li className="fill-gray text-black
                     hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/products'}
                          className="flex gap-2 items-center"
@@ -90,7 +87,7 @@ const Sidebar = () => {
                             Products
                         </Link>
                     </li>
-                    <li className="fill-gray text-gray
+                    <li className="fill-gray text-black
                     hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/about'}
                          className="flex gap-2 items-center"
@@ -99,7 +96,7 @@ const Sidebar = () => {
                             About us
                         </Link>
                     </li>
-                    <li className="fill-gray text-gray
+                    <li className="fill-gray text-black
                     hover:fill-black hover:text-black hover:scale-[0.95]">
                         <Link href={'/contact'}
                          className="flex gap-2 items-center"

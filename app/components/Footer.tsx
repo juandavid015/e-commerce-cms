@@ -4,7 +4,7 @@ import { IconFacebook, IconInstagram, IconMasterCard, IconPaypal, IconTwitter, I
 const Footer = () => {
     return (
         <footer className="font-heading text-gray p-16
-        w-full mt-auto md:col-span-full md:col-start-1 md-col-end-4
+        w-full mt-auto md:col-span-full md:col-start-1 md:col-end-4 col-span-3
         bg-white-gray flex sm:flex-row flex-col-reverse gap-32"
         >
             <div className="flex flex-col gap-1">
@@ -12,14 +12,14 @@ const Footer = () => {
                 width={100}
                 height={100}
                 alt="logo"
-                src={'/images/e-logo.png'}
+                src={'/images/logo.png'}
                 priority
                 />
                 {/* <span className="text-black font-heading text-4xl font-bold font-sans">
                     E
                 </span> */}
                 <p>
-                    E is a company based on the e-commerce online
+                    U-buy is a company based on the e-commerce online
                 </p>
                 <ul className="flex gap-2">
                     <li className="text-black">
@@ -63,12 +63,12 @@ const Footer = () => {
                     </span>
                     <ul className="flex flex-col gap-1">
                         <li className="text-gray hover:text-black hover:scale-[0.95]">
-                            <Link href={'/about'}>
+                            <Link href={'/products'}>
                                 Products
                             </Link>
                         </li>
                         <li className="text-gray hover:text-black hover:scale-[0.95]">
-                            <Link href={'/about'}>
+                            <Link href={'/products'}>
                                 Discounts
                             </Link>
                         </li>
