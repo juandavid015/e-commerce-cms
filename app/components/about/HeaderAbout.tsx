@@ -18,7 +18,7 @@ const HeaderAbout = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua.
                 </p>
-                <Link href={'#'}
+                <Link href={'/'}
                     className="flex gap-4 items-center text-white fill-white bg-iris w-fit
                     px-8 py-3 rounded-md font-heading text-lg hover:scale-[0.95] transition-all">
                     <span>Get a view</span>

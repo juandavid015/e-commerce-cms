@@ -16,7 +16,7 @@ const DiscountCard = () => {
                     50% OFF
                 </p>
             </div>
-            <Link href={'#'}
+            <Link href={'/products'}
             className="inline-flex items-center gap-2
             group/link hover:scale-[0.95] hover:text-white/70">
                 <span>See more</span>

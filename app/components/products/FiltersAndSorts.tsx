@@ -60,7 +60,7 @@ const FiltersAndSorts = () => {
             </div>
 
             <div className={`w-full bg-white rounded-lg 
-            flex flex-col gap-4 origin-top p-8
+            flex flex-col gap-4 origin-top p-8 animation-none
             ${showFilters ? 'animate-expand-bottom overflow-visible' : ' animate-expand-top overflow-hidden'}`}
             id="filters-panel"
             aria-hidden={!showFilters}

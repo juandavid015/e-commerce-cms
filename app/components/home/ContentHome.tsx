@@ -39,7 +39,7 @@ const ContentHome = () => {
             
                 </div>
             </div>
-            <Link href={'#'}
+            <Link href={'/products'}
             className="fill-gray text-gray hover:fill-black hover:text-black hover:scale-[0.95]
             flex items-center gap-3 w-fit sm:text-2xl text-xl font-heading font-bold
             mx-auto my-16 transition-all">

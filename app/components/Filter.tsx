@@ -47,7 +47,7 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
 
     return (
         <div className="custom-filter relative rounded-md 
-        max-w-[170px] w-[170px] "
+        max-w-[170px] w-fit flex-1"
             role="listbox" aria-labelledby="selected-option"
             aria-activedescendant='selected-option'
         >
@@ -81,8 +81,8 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
             </div>
             {isOpen && (
 
-                <ul className='options-list absolute w-full mt-0 transition-all
-                bg-white rounded-md flex flex-col shadow shadow-md '
+                <ul className='options-list absolute w-full mt-0 transition-all z-10
+                bg-white rounded-md flex flex-col shadow shadow-md overflow-y-auto max-h-[200px]'
                 >
                     {options.map((option, optIndex) => (
                         <li
