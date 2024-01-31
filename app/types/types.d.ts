@@ -16,7 +16,7 @@ export interface Product {
     description: string,
     price: number,
     image: string,
-    type: string,
+    category: string,
     discount?: number,
     otherImages?: string[],
     variants?: { [key:string]: string[] | undefined}

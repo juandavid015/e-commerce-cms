@@ -18,12 +18,12 @@ export const SearchBar = () => {
         `}
         onFocus={showSearchFullBar} ref={elementRef}
         >
-            <form action="./search/"
+            <form action="./products/"
                 className={`text-sm  lg:w-full  
                 bg-white-gray rounded-md py-2 px-4 ${expanded ? 'w-full': 'w-full' }
                 flex items-center gap-2`}>
                 <label htmlFor="product" className="w-full">
-                    <input type="search" id="product" name="product"
+                    <input type="search" id="title" name="title"
                         placeholder="Search for items, products and inspiration..."
                         className={`focus:outline-none bg-transparent grayscale w-full
                         `}/>

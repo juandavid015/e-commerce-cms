@@ -1,17 +1,18 @@
-'use client'
-import { Product } from "@/app/types/types";
-import { data } from "@/app/data";
-import { IconArrowLarge, IconBagShop } from "@/app/components/Icons";
-import Filter from "@/app/components/Filter";
-import Link from "next/link";
 
-const Product = ({ params }: { params: { id: number } }) => {
+import { Product as ProductType } from "@/app/types/types";
+// import { data } from "@/app/data";
+import { IconArrowLarge, IconBagShop } from "@/app/components/Icons";
+import Filter from "@/app/components/Select";
+import Link from "next/link";
+import { getProductById } from "@/app/services/products";
+
+const Product = async ({ params }: { params: { id: number } }) => {
     // Here we will fetch the product data from the API
     // As recordatory, read the docs about getStaticProps and getStaticPaths
     // Meanwhile, we will use the hardcoded data from the products page
+    
+    const product: ProductType = await getProductById(params.id);
 
-    const product: Product | undefined = data.products.
-        find(product => product.id === Number(params.id))
     if(!product) {
         throw new Error('Product not found')
     }
@@ -25,7 +26,7 @@ const Product = ({ params }: { params: { id: number } }) => {
                 <IconArrowLarge className="h-[20px] -rotate-90" />
             </Link>
             <div className="text-gray font-bold text-xl h-fit">
-                {`products/${product?.type}`}
+                {`products/${product?.category}`}
             </div>
             <div className="flex w-full gap-16 lg:flex-row flex-col lg:items-start items-center">
                 {/* Images */}
@@ -43,7 +44,7 @@ const Product = ({ params }: { params: { id: number } }) => {
                                         <div key={'image' + imageIndex}
                                             className="w-full max-h-[100px] h-full rounded-md overflow-hidden">
                                             <img src={image} alt={`Image of ${product?.title}`}
-                                                className="w-full h-full object-cover " />
+                                                className="w-full h-full object-cover object-center" />
                                         </div>
                                     )
                                 })

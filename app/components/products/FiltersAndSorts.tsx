@@ -1,19 +1,16 @@
 "use client";
-import Filter from "../Filter";
-import { useState, useRef } from "react";
+
+import { useState, useRef, useEffect } from "react";
 import { IconFilter } from "../Icons";
-const filters = {
-    condition: ['new', 'used'],
-    category: ['clothes', 'technology', 'health and care'],
-    discount: ['20%','30%', '50%','70%']
-}
-const sorts = {
-    price: ['lower price', 'higher price']
-}
+import { getCategories } from "@/app/services/categories";
+import { getDiscounts } from "@/app/services/discounts";
+import Select from "../Select";
+import { sorts } from "@/app/services/sorts";
+
 
 const FiltersAndSorts = () => {
     const [showFilters, setShowFilters] = useState(false)
-
+    const [filters, setFilters] = useState<{[key:string]:any}>({})
     const filtersPanelRef = useRef<HTMLDivElement>(null);
 
     const toggleFilters = () => {
@@ -24,9 +21,28 @@ const FiltersAndSorts = () => {
      
     };
 
+    useEffect(()=> {
+        const fetchCategories = async () => {
+            let result:Array<string> = [];
+            try {
+                let categories = await getCategories();
+                let discounts = getDiscounts();
+                setFilters((prevFilters)=> ({
+                    ...prevFilters, 
+                    category: categories,
+                    discount: discounts
+                }))
+            } catch (error) {
+                throw new Error('An error ocurred in "Categories"');
+            }
+    
+            return result;
+        }
+        fetchCategories()
+    }, [])
     return (
         <div className="flex flex-col sm:flex-nowrap flew-wrap justify-between gap-8 
-        relative z-[1000] h-full">
+        relative z-[1000] h-fit">
             <div className="w-full h-full flex sm:flex-nowrap flex-wrap justify-between gap-4">
                 <button className="border-gray border px-4 py-2 rounded-lg
                 font-bold block h-fit w-fit flex gap-2 items-center"
@@ -47,7 +63,7 @@ const FiltersAndSorts = () => {
                 </div> */}
                 {
                     Object.entries(sorts).map(([key, value])=> (
-                        <Filter 
+                        <Select 
                         key={key + value}
                         options={value}
                         title={key}
@@ -66,8 +82,6 @@ const FiltersAndSorts = () => {
             aria-hidden={!showFilters}
             ref={filtersPanelRef}
             aria-labelledby="filters-label"
-           
-
             >
                 <span className="font-bold hidden h-0 w-0" id="filters-label" 
                 aria-label="filters">
@@ -80,11 +94,12 @@ const FiltersAndSorts = () => {
 
                     {
                         Object.entries(filters).map(([key, value])=> (
-                            <Filter 
+                            <Select 
                             key={key + value}
                             options={value}
                             title={key}
                             label={`Select ${key}`}
+                            treatOptionsAsPercentages={key === 'discount'}
                             />
                         ))
                     }

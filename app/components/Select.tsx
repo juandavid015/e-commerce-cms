@@ -1,12 +1,25 @@
 'use client'
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { IconArrow, IconCheck } from './Icons';
 import { useClickOutside } from '../hooks/useClickOutside';
+import { useRouter } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+import useQueryString from '../hooks/useQueryString';
 
-const Filter = ({ options, title, label, type }: { options: Array<string>, title: string, label: string, type?: 'sort' | 'filter' }) => {
-
+interface Select {
+    options: Array<string>, 
+    treatOptionsAsPercentages?: boolean,
+    title: string, 
+    label: string, 
+    type?: 'sort' | 'filter'
+}
+const Select = ({ options, title, label, type, treatOptionsAsPercentages = false }: Select) => {
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    const createQueryString = useQueryString(searchParams);
     const selectRef = useRef<HTMLDivElement>(null)
-    const [selectedOption, setSelectedOption] = useState(options[0])
+    const [selectedOption, setSelectedOption] = useState('')
     const [isOpen, setIsOpen] = useState(false);
     const [focusedIndex, setFocusedIndex] = useState(0);
 
@@ -16,10 +29,18 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
     }
 
     // When an option is clicked focus the item, change the state and close
-    const handleOptionClick = (option: string) => {
-        setSelectedOption(option);
-        setIsOpen(false);
-        selectRef.current && selectRef.current.focus();
+    const handleOptionClick = (option: string, title: string) => {
+        console.log('opt', option)
+        if(String(option) === selectedOption) {
+            setSelectedOption('') 
+            router.push(pathname + '?' + createQueryString(title, '') ) // Reset and push to a new URL search param 
+        } else {
+
+            setSelectedOption(option);
+            setIsOpen(false);
+            selectRef.current && selectRef.current.focus();
+            router.push(pathname + '?' + createQueryString(title, option)) // set and push to a new URL search param
+        }
     };
 
     // Allow navigation, selection and close over the options list
@@ -45,9 +66,17 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
     // Close the options list when click outside the box
     useClickOutside({ elementRef: selectRef, onClickOutside: () => setIsOpen(false) });
 
+    useEffect(() => {
+        const isOnSearchParams = searchParams.get(title)
+        if(isOnSearchParams) {
+            console.log(isOnSearchParams)
+            setSelectedOption(isOnSearchParams);
+        } 
+    }, [setSelectedOption, searchParams, title])
+
     return (
         <div className="custom-filter relative rounded-md 
-        max-w-[170px] w-fit flex-1"
+        min-w-[170px] w-auto flex-1"
             role="listbox" aria-labelledby="selected-option"
             aria-activedescendant='selected-option'
         >
@@ -63,12 +92,11 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
             >
                 <span className='flex flex-col pr-[calc(15px+1rem)]'>
                     
-                    <span className={`font-bold capitalize ${type === 'sort' ? 'hidden' : 'inline'}`}>
+                    <span className={`font-bold capitalize ${'inline'}`}>
                         {`${title}:`}
                     </span>
-                    <span className={`${type === 'sort' ? 'text-black font-bold': 'text-gray'}
-                     capitalize `}>
-                        {`${selectedOption}`}
+                    <span className={`text-gray capitalize `}>
+                         { treatOptionsAsPercentages ? `${Number(selectedOption) * 100}%` : selectedOption}
                     </span>
                 </span>
                 <div className='font-black h-fit w-fit
@@ -84,7 +112,7 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
                 <ul className='options-list absolute w-full mt-0 transition-all z-10
                 bg-white rounded-md flex flex-col shadow shadow-md overflow-y-auto max-h-[200px]'
                 >
-                    {options.map((option, optIndex) => (
+                    {options?.map((option, optIndex) => (
                         <li
                             className={`hover:text-black hover:bg-white-gray/30 cursor-pointer
                             capitalize text-sm relative pr-[20px] py-2 px-4 
@@ -92,11 +120,14 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
                             key={option + optIndex}
                             role='option'
                             aria-selected={option === selectedOption}
-                            onClick={() => handleOptionClick(option)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleOptionClick(option)}
+                            onClick={() => handleOptionClick(option, title)}
+                            onKeyDown={(e) => e.key === 'Enter' && handleOptionClick(option, title)}
                         >
-                            <span>{option}</span>
-                            {option === selectedOption &&
+                            <span>
+                                { treatOptionsAsPercentages ? `${Number(option) * 100}%` : option}
+                            </span>
+                            {
+                                String(option) === selectedOption &&
                                 <IconCheck className='h-[15px] absolute right-3 top-[25%] bg-black fill-white rounded-sm' />
                             }
                         </li>
@@ -108,4 +139,4 @@ const Filter = ({ options, title, label, type }: { options: Array<string>, title
         </div>
     )
 }
-export default Filter;
+export default Select;
